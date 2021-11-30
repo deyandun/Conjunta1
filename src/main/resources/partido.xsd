@@ -1,0 +1,38 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ec.edu.espe.arquitectura.ticketpremiun/ws"
+           targetNamespace="http://ec.edu.espe.arquitectura.ticketpremiun/ws" elementFormDefault="qualified">
+
+    <xs:element name="obtenerPartidosDisponiblesRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="fecha" type="xs:date"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="obtenerPartidosDisponiblesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="partido" type="tns:partido"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+  
+    <xs:complexType name="partido">
+        <xs:sequence>
+            <xs:element name="codigo_partido" type="xs:string"/>
+            <xs:element name="codigo_localidad" type="xs:localidad"/>
+            <xs:element name="equipo_local" type="xs:string"/>
+            <xs:element name="equipo_visitante" type="xs:string"/>
+            <xs:element name="fecha" type="xs:date"/>
+            <xs:element name="lugar" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="localidad">
+        <xs:sequence>
+            <xs:element name="codigo_localidad" type="xs:string"/>
+            <xs:element name="disponibilidad" type="xs:integer"/>
+            <xs:element name="precio" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
